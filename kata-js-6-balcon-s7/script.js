@@ -81,6 +81,24 @@ afficherPlantes(plantes);
 // Au clic sur « Toutes » : toutes les plantes.
 // Les gestionnaires sont des fonctions fléchées : () => { ... }
 
+const btnInterieur = document.getElementById("btn-interieur");
+const btnExterieur = document.getElementById("btn-exterieur");
+const btnToutes = document.getElementById("btn-toutes");
+// Bouton Intérieur
+btnInterieur.addEventListener("click", () => {
+    const resultat = filtrerParLieu(plantes, "intérieur");
+    afficherPlantes(resultat);
+});
+// Bouton Extérieur
+btnExterieur.addEventListener("click", () => {
+    const resultat = filtrerParLieu(plantes, "extérieur");
+    afficherPlantes(resultat);
+});
+// Bouton Toutes
+btnToutes.addEventListener("click", () => {
+    afficherPlantes(plantes);
+});
+
 // TODO 6 — Le bouton actif
 // Le bouton cliqué prend la classe "actif", les deux autres la perdent.
 
