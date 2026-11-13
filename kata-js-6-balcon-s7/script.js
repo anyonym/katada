@@ -40,13 +40,36 @@ console.log(filtrerParLieu(plantes, "intérieur")) // doit afficher 4 plantes
 // ---------- PARTIE 2 : les fonctions qui AFFICHENT ----------
 // Elles modifient la page. Elles ne retournent rien.
 
+
 // TODO 3 — afficherPlantes(liste)
 // 1. Vide la liste <ul id="liste">
 // 2. Pour chaque plante, crée un <li> qui contient l'emoji puis le nom
 // 3. Si la plante est à arroser, ajoute au <li> la classe "a-arroser"
 // 4. Mets à jour <p id="compteur"> : « 4 plantes à arroser sur 8 »
 //    (utilise compterAArroser, ne recompte pas ici)
-function afficherPlantes(liste) {}
+
+function afficherPlantes(liste) {
+    const ul = document.getElementById("liste");
+    // Vider la liste
+    ul.textContent = "";
+    // Parcourir les plantes
+    liste.forEach(function(plante) {
+        // Créer un élément li
+        const li = document.createElement("li");
+        // Ajouter emoji et nom
+        li.textContent = plante.emoji + " " + plante.nom;
+        // Ajouter une classe si elle doit être arrosée
+        if (plante.aArroser) {
+            li.classList.add("a-arroser");
+        }
+        // Ajouter le li dans le ul
+        ul.appendChild(li);
+    });
+    // Mettre à jour le compteur
+    const nombre = compterAArroser(liste);
+    document.getElementById("compteur").textContent =
+        nombre + " plantes à arroser sur " + liste.length;
+}
 
 // TODO 4 — Au chargement de la page, affiche toutes les plantes.
 
