@@ -10,25 +10,32 @@
 // TODO 1 — compterAArroser(liste)
 // Retourne le nombre de plantes de la liste dont aArroser vaut true.
 function compterAArroser(liste) {
-  let compteur = 0;
-  liste.forEach(function (plante) {
-    if (plante.aArroser) {
-      compteur++;
-    }
+  	let compteur = 0;
+		liste.forEach(function (plante) {
+	if (plante.aArroser) {
+	  	compteur++;
+	}
   });
   return compteur;
 }
 
 // Vérifie dans la console avant de passer à la suite :
-// console.log(compterAArroser(plantes)) // doit afficher 4
-console.log(compterAArroser(plantes));
+console.log(compterAArroser(plantes)) // doit afficher 4
 
 // TODO 2 — filtrerParLieu(liste, lieu)
 // Retourne un NOUVEAU tableau avec seulement les plantes dont le lieu
 // est égal au paramètre lieu ("intérieur" ou "extérieur").
-function filtrerParLieu(liste, lieu) {}
+function filtrerParLieu(liste, lieu) {
+  	const tabLieu = [];
+  	liste.forEach(function (plante) {
+		if (plante.lieu === lieu) {
+	  	tabLieu.push(plante);
+	}
+  });
+  return tabLieu;
+}
 
-// console.log(filtrerParLieu(plantes, "intérieur")) // doit afficher 4 plantes
+console.log(filtrerParLieu(plantes, "intérieur")) // doit afficher 4 plantes
 
 // ---------- PARTIE 2 : les fonctions qui AFFICHENT ----------
 // Elles modifient la page. Elles ne retournent rien.
