@@ -88,19 +88,31 @@ const btnToutes = document.getElementById("btn-toutes");
 btnInterieur.addEventListener("click", () => {
     const resultat = filtrerParLieu(plantes, "intérieur");
     afficherPlantes(resultat);
+	activerBouton(btnInterieur);
 });
 // Bouton Extérieur
 btnExterieur.addEventListener("click", () => {
     const resultat = filtrerParLieu(plantes, "extérieur");
     afficherPlantes(resultat);
+	activerBouton(btnExterieur);
 });
 // Bouton Toutes
 btnToutes.addEventListener("click", () => {
     afficherPlantes(plantes);
+	activerBouton(btnToutes);
 });
 
 // TODO 6 — Le bouton actif
 // Le bouton cliqué prend la classe "actif", les deux autres la perdent.
+
+function activerBouton(bouton) {
+
+    btnInterieur.classList.remove("actif");
+    btnExterieur.classList.remove("actif");
+    btnToutes.classList.remove("actif");
+
+    bouton.classList.add("actif");
+}
 
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
