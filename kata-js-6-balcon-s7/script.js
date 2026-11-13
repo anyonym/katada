@@ -114,9 +114,11 @@ function activerBouton(bouton) {
     bouton.classList.add("actif");
 }
 
+console.log(plantes.length)
+
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
-// 1.
-// 2.
-// 3.
+// 1. On pourrait tester avec Jest les fonctions de calcul de la partie 1, pas la fonction d'affichage car elle ne retourne pas de résultat : elle modifie les éléments HTML.
+// 2. A chaque clic sur n'importe quel bouton la liste correspondant au lieu s'ajoute à la suite.
+// 3. "Uncaught ReferenceError: plantes is not defined" s'affiche dans la console. En plaçant script.js au dessus de plantes.js, le script exécute des fonctions qui appellent des données non définies.
 // =====================================================
