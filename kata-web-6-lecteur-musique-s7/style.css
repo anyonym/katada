@@ -1,0 +1,128 @@
+/* =====================================================
+   Kata web 6 — Lecteur de musique
+   Les couleurs, les polices et l'aspect des boutons sont prêts.
+   À toi la MISE EN PAGE : suis les TODO, en mobile d'abord.
+   ===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #14141f;
+  color: #f1f0f7;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a3a1b8;
+  margin-bottom: 12px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #b9a7ff;
+}
+
+.artiste,
+.piste-artiste,
+.duree,
+.numero,
+.temps {
+  color: #a3a1b8;
+  font-size: 0.9rem;
+}
+
+.pochette {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+}
+
+.pistes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.piste {
+  padding: 10px 0;
+  border-bottom: 1px solid #2b2a3d;
+}
+
+.bouton-icone,
+.bouton-lecture {
+  border: none;
+  border-radius: 50%;
+  color: #f1f0f7;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.bouton-icone {
+  width: 44px;
+  height: 44px;
+  background: transparent;
+}
+
+.bouton-lecture {
+  width: 64px;
+  height: 64px;
+  background: #7b61ff;
+}
+
+.bouton-icone:focus-visible,
+.bouton-lecture:focus-visible,
+.barre:focus-visible {
+  outline: 3px solid #f2d16b;
+  outline-offset: 2px;
+}
+
+/* Cache un élément à l'écran, mais le laisse lisible par un lecteur d'écran */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.controles {
+  background: #1e1d2e;
+  padding: 12px 16px 20px;
+}
+
+
+/* ---------- TODO 2 — L'en-tête ---------- */
+
+
+
+/* ---------- TODO 3 — Le morceau en cours ---------- */
+
+
+
+/* ---------- TODO 4 — Une piste de la playlist ---------- */
+
+
+
+/* ---------- TODO 5 — La barre de contrôle ---------- */
+
+
+
+/* ---------- TODO 6 — Grand écran (768px et plus) ---------- */

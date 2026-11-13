@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ondes — lecteur</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="entete">
+    <p class="logo">Ondes</p>
+    <button type="button" class="bouton-icone">☰</button>
+  </header>
+
+  <main class="contenu">
+
+    <section class="en-cours">
+      <img src="pochette.svg" class="pochette">
+      <div class="infos">
+        <h1 class="titre">Marée basse</h1>
+        <p class="artiste">Les Sœurs Lune</p>
+      </div>
+      <button type="button" class="bouton-icone">♡</button>
+    </section>
+
+    <section class="playlist">
+      <h2>À suivre</h2>
+      <ul class="pistes">
+        <li class="piste">
+          <span class="numero">1</span>
+          <div class="piste-infos">
+            <p class="piste-titre">Marée basse</p>
+            <p class="piste-artiste">Les Sœurs Lune</p>
+          </div>
+          <span class="duree">3:42</span>
+        </li>
+        <li class="piste">
+          <span class="numero">2</span>
+          <div class="piste-infos">
+            <p class="piste-titre">Néons de novembre</p>
+            <p class="piste-artiste">Iris Kaplan</p>
+          </div>
+          <span class="duree">4:05</span>
+        </li>
+        <li class="piste">
+          <span class="numero">3</span>
+          <div class="piste-infos">
+            <p class="piste-titre">Ligne 7, terminus</p>
+            <p class="piste-artiste">Babel Orchestra</p>
+          </div>
+          <span class="duree">2:58</span>
+        </li>
+        <li class="piste">
+          <span class="numero">4</span>
+          <div class="piste-infos">
+            <p class="piste-titre">Ce que dit la pluie</p>
+            <p class="piste-artiste">Nour &amp; les Phares</p>
+          </div>
+          <span class="duree">5:11</span>
+        </li>
+        <li class="piste">
+          <span class="numero">5</span>
+          <div class="piste-infos">
+            <p class="piste-titre">Fréquence basse</p>
+            <p class="piste-artiste">Iris Kaplan</p>
+          </div>
+          <span class="duree">3:27</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="controles">
+    <div class="progression">
+      <span class="temps">1:12</span>
+      <input type="range" min="0" max="222" value="72" class="barre">
+      <span class="temps">3:42</span>
+    </div>
+    <div class="boutons">
+      <button type="button" class="bouton-icone">⏮</button>
+      <button type="button" class="bouton-lecture">▶</button>
+      <button type="button" class="bouton-icone">⏭</button>
+    </div>
+  </footer>
+
+</body>
+</html>
