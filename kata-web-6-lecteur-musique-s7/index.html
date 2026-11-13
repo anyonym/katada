@@ -10,18 +10,18 @@
 
   <header class="entete">
     <p class="logo">Ondes</p>
-    <button type="button" class="bouton-icone">☰</button>
+    <button type="button" class="bouton-icone" aria-label="menu">☰</button>
   </header>
 
   <main class="contenu">
 
     <section class="en-cours">
-      <img src="pochette.svg" class="pochette">
+      <img src="pochette.svg" class="pochette" alt="Pochette de l'album Marée basse">
       <div class="infos">
         <h1 class="titre">Marée basse</h1>
         <p class="artiste">Les Sœurs Lune</p>
       </div>
-      <button type="button" class="bouton-icone">♡</button>
+      <button type="button" class="bouton-icone" aria-label="Ajouter en favori">♡</button>
     </section>
 
     <section class="playlist">
@@ -75,13 +75,14 @@
   <footer class="controles">
     <div class="progression">
       <span class="temps">1:12</span>
-      <input type="range" min="0" max="222" value="72" class="barre">
+      <label for="Progression de lecture" class="visually-hidden"></label>
+      <input id="Progression de lecture" type="range" min="0" max="222" value="72" class="barre">
       <span class="temps">3:42</span>
     </div>
     <div class="boutons">
-      <button type="button" class="bouton-icone">⏮</button>
-      <button type="button" class="bouton-lecture">▶</button>
-      <button type="button" class="bouton-icone">⏭</button>
+      <button type="button" class="bouton-icone" aria-label="Morceau précédent">⏮</button>
+      <button type="button" class="bouton-lecture" aria-label="Lecture">▶</button>
+      <button type="button" class="bouton-icone" aria-label="Morceau suivant">⏭</button>
     </div>
   </footer>
 
