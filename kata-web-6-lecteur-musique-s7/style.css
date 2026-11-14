@@ -114,7 +114,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 12px;
 }
 
 
@@ -124,25 +124,25 @@ header {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
 .infos h1 {
-  margin-bottom: 0.75rem;
+  margin-bottom: 12px;
 }
 
 
 /* ---------- TODO 4 — Une piste de la playlist ---------- */
 
 .playlist {
-  padding: 1rem;
+  padding: 12px;
 }
 
 .piste {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 1rem;
+  padding: 12px;
 }
 
 .piste-infos {
@@ -152,6 +152,22 @@ header {
 
 /* ---------- TODO 5 — La barre de contrôle ---------- */
 
+.progression {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
 
+.barre {
+  flex-grow: 1;
+}
+
+.boutons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 
 /* ---------- TODO 6 — Grand écran (768px et plus) ---------- */
