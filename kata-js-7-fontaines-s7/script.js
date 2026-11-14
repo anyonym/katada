@@ -91,16 +91,31 @@ boutonService.addEventListener("click", () => {
 
 
 // TODO 6 — Une fonction fléchée en argument
+
+const selectCommune = document.getElementById("choix-commune");
+
 // Quand on change l'arrondissement dans le <select>, affiche seulement
 // les fontaines de cet arrondissement, avec filtrer et une fonction
 // fléchée écrite directement dans l'appel.
-// « Tous » réaffiche toutes les fontaines.
-
-
+selectCommune.addEventListener("change", () => {
+    const communeChoisie = selectCommune.value;
+    
+    // « Tous » réaffiche toutes les fontaines.
+    if (communeChoisie === "tous") {
+        afficherFontaines(fontaines);
+    } else {
+        afficherFontaines(
+            filtrer(
+                fontaines,
+                (fontaine) => fontaine.commune === communeChoisie
+      )
+    );
+  }
+});
 
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
-// 1.
-// 2.
-// 3.
+// 1. Uncaught TypeError: Cannot read properties of undefined (reading 'dispo'). La console mentionne une erreur de type, le résultat attendu par estEnService est un booleen mais ici la fonction ne s'exécute pas : elle est elle-même donnée en second argument de la fonction filtrer pour servir de callback.
+// 2. total_count retourne un total de données global alors que results.length correspond au nombre d'éléments contenus dans l'objet renvoyé par une requête. 
+// 3. Une fonction qui appelle une autre fonction execute du code pour obtenir un résultat à l'issue, au contraire une fonction qui reçoit une autre fonction, type callback, l'utilise comme paramètre à executer lorsqu'elle sera appelée.
 // =====================================================
