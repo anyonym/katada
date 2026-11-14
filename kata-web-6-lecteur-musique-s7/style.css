@@ -133,7 +133,6 @@ header {
 
 
 /* ---------- TODO 4 — Une piste de la playlist ---------- */
-
 .playlist {
   padding: 12px;
 }
@@ -170,4 +169,18 @@ header {
   gap: 20px;
 }
 
+
 /* ---------- TODO 6 — Grand écran (768px et plus) ---------- */
+@media (min-width: 768px) {
+
+.contenu {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
+}
+
+.playlist {
+  flex-grow: 1;
+  margin-left: 50px;
+}
+}
