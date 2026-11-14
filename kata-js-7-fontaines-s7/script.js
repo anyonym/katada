@@ -31,32 +31,32 @@ function extraireFontaines(reponse) {
 //    et son motif entre parenthèses
 // 4. Le compteur affiche « 8 fontaines »
 function afficherFontaines(liste) {
-  // 1. Récupérer les éléments HTML
+  // Récupérer les éléments HTML
   const ul = document.getElementById("liste");
   const compteur = document.getElementById("compteur");
-  // 2. Vider la liste
+  // Vider la liste
   ul.textContent = "";
-  // 3. Parcourir les fontaines
+  // Parcourir les fontaines
   liste.forEach((fontaine) => {
-    // 4. Créer un élément li
+    // Créer un élément li
     const li = document.createElement("li");
-    // 5. Ajouter la voie et la commune
+    // Ajouter la voie et la commune
     li.textContent = fontaine.voie + " - " + fontaine.commune;
-    // 6. Vérifier si la fontaine est hors service
+    // Vérifier si la fontaine est hors service
     if (fontaine.dispo !== "OUI") {
       li.classList.add("hors-service");
       li.textContent += " (" + (fontaine.motif_ind ?? "Motif non renseigné") + ")";
     }
-    // 7. Ajouter le li dans la liste
+    // Ajouter le li dans la liste
     ul.appendChild(li);
   });
-  // 8. Mettre à jour le compteur
+  // Mettre à jour le compteur
   compteur.textContent = liste.length + " fontaines affichées";
 }
 
 
 // TODO 4 — Au chargement, affiche toutes les fontaines.
-
+afficherFontaines(extraireFontaines(reponse));
 
 
 // TODO 5 — Une fonction en argument
