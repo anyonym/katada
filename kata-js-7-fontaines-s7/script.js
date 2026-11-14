@@ -11,7 +11,11 @@
 // c. la voie de la première fontaine
 // d. la latitude de la deuxième fontaine
 // e. le motif d'indisponibilité de la cinquième fontaine
-
+console.log(reponse.total_count)
+console.log(reponse.results.length)
+console.log(reponse.results[0].voie)
+console.log(reponse.results[1].geo_point_2d.lat)
+console.log(reponse.results[4].motif_ind)
 
 // TODO 2 — extraireFontaines(reponse)
 // Retourne le tableau des fontaines, sans l'enveloppe.
