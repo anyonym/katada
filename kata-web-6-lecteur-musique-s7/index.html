@@ -75,15 +75,22 @@
   <footer class="controles">
     <div class="progression">
       <span class="temps">1:12</span>
-      <label for="Progression de lecture" class="visually-hidden"></label>
+      <label for="Progression de lecture" class="visually-hidden">Progression de lecture</label>
       <input id="Progression de lecture" type="range" min="0" max="222" value="72" class="barre">
       <span class="temps">3:42</span>
     </div>
-    <div class="boutons">
-      <button type="button" class="bouton-icone" aria-label="Morceau précédent">⏮</button>
-      <button type="button" class="bouton-lecture" aria-label="Lecture">▶</button>
-      <button type="button" class="bouton-icone" aria-label="Morceau suivant">⏭</button>
-    </div>
+    <section class="actions">
+      <div class="boutons">
+        <button type="button" class="bouton-icone" aria-label="Morceau précédent">⏮</button>
+        <button type="button" class="bouton-lecture" aria-label="Lecture">▶</button>
+        <button type="button" class="bouton-icone" aria-label="Morceau suivant">⏭</button>
+      </div>
+      <div class="volume">
+        <label for="volume">Volume</label>
+        <input type="range" id="volume" min="0" max="100" value="70" class="barre-volume">
+      </div>
+    </section>
+
   </footer>
 
 </body>

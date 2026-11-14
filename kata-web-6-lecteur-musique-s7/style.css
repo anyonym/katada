@@ -103,6 +103,7 @@ h2 {
   white-space: nowrap;
 }
 
+/* Barre de contrôle fixée en bas d'écran */
 .controles {
   background: #1e1d2e;
   padding: 12px 16px 20px;
@@ -111,6 +112,7 @@ h2 {
   z-index: 10;
 }
 
+/* Espace libre conservé entre la fin de la liste de lecture et la barre de contrôle */
 .contenu {
   padding-bottom: 50px;
 }
@@ -137,6 +139,7 @@ header {
   margin-bottom: 12px;
 }
 
+/* Mise en valeur de la piste en cours de lecture */
 .piste.active {
   color: #8b5cf6;
   font-weight: bold;
@@ -184,10 +187,14 @@ header {
   gap: 20px;
 }
 
+/* Masquer la barre de volume en affichage mobile */
+.volume {
+  display: none;
+}
+
 
 /* ---------- TODO 6 — Grand écran (768px et plus) ---------- */
 @media (min-width: 768px) {
-
 .contenu {
   display: flex;
   flex-direction: row;
@@ -197,5 +204,21 @@ header {
 .playlist {
   flex-grow: 1;
   margin-left: 50px;
+}
+
+/* Placeer et aligner les boutons de contrôle et la barre de volume */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* Barre de volume à droite des boutons de contrôle */
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 }
