@@ -7,51 +7,52 @@
 // TODO 1 — Explorer la réponse dans la console
 // Sans écrire de fonction, affiche avec console.log :
 // a. le nombre total de fontaines annoncé par la réponse
-// b. le nombre de fontaines réellement présentes dans results
-// c. la voie de la première fontaine
-// d. la latitude de la deuxième fontaine
-// e. le motif d'indisponibilité de la cinquième fontaine
 console.log(reponse.total_count)
+// b. le nombre de fontaines réellement présentes dans results
 console.log(reponse.results.length)
+// c. la voie de la première fontaine
 console.log(reponse.results[0].voie)
+// d. la latitude de la deuxième fontaine
 console.log(reponse.results[1].geo_point_2d.lat)
+// e. le motif d'indisponibilité de la cinquième fontaine
 console.log(reponse.results[4].motif_ind)
+
 
 // TODO 2 — extraireFontaines(reponse)
 // Retourne le tableau des fontaines, sans l'enveloppe.
 function extraireFontaines(reponse) {
     return reponse.results;
 }
+// défini en constante pour servir ensuite
+const fontaines = extraireFontaines(reponse);
 
 
 // TODO 3 — afficherFontaines(liste)
-// 1. Vide <ul id="liste">
-// 2. Un <li> par fontaine : la voie, puis la commune
-// 3. Une fontaine hors service reçoit la classe "hors-service"
-//    et son motif entre parenthèses
-// 4. Le compteur affiche « 8 fontaines »
 function afficherFontaines(liste) {
-  // Récupérer les éléments HTML
-  const ul = document.getElementById("liste");
-  const compteur = document.getElementById("compteur");
-  // Vider la liste
-  ul.textContent = "";
-  // Parcourir les fontaines
-  liste.forEach((fontaine) => {
-    // Créer un élément li
-    const li = document.createElement("li");
-    // Ajouter la voie et la commune
-    li.textContent = fontaine.voie + " - " + fontaine.commune;
-    // Vérifier si la fontaine est hors service
-    if (fontaine.dispo !== "OUI") {
-      li.classList.add("hors-service");
-      li.textContent += " (" + (fontaine.motif_ind ?? "Motif non renseigné") + ")";
-    }
-    // Ajouter le li dans la liste
-    ul.appendChild(li);
-  });
-  // Mettre à jour le compteur
-  compteur.textContent = liste.length + " fontaines affichées";
+    // Récupération des éléments HTML
+    const ul = document.getElementById("liste");
+    const compteur = document.getElementById("compteur");
+    // 1. Vide <ul id="liste">
+    ul.textContent = "";
+    // Parcourir les fontaines
+    liste.forEach((fontaine) => {
+        // 2. Un <li> par fontaine : la voie, puis la commune
+        // Créer un élément li
+        const li = document.createElement("li");
+        // Ajouter la voie et la commune
+        li.textContent = fontaine.voie + " - " + fontaine.commune;
+        // Vérifier si la fontaine est hors service
+        if (fontaine.dispo !== "OUI") {
+            // 3. Une fontaine hors service reçoit la classe "hors-service"
+            li.classList.add("hors-service");
+            //    et son motif entre parenthèses
+            li.textContent += " (" + (fontaine.motif_ind ?? "Motif non renseigné") + ")";
+        }
+        // Ajouter le li dans la liste
+        ul.appendChild(li);
+    });
+    // 4. Le compteur affiche « 8 fontaines »
+    compteur.textContent = liste.length + " fontaines";
 }
 
 
@@ -60,18 +61,33 @@ afficherFontaines(extraireFontaines(reponse));
 
 
 // TODO 5 — Une fonction en argument
+
 // a. estEnService(fontaine) retourne true si la fontaine est disponible
-// b. filtrer(liste, test) retourne un nouveau tableau avec les fontaines
-//    pour lesquelles test(fontaine) vaut true
-// c. Au clic sur « En service seulement », affiche filtrer(..., estEnService)
 function estEnService(fontaine) {
-
+    return fontaine.dispo === "OUI";
 }
 
+// b. filtrer(liste, test) retourne un nouveau tableau avec les fontaines
 function filtrer(liste, test) {
-
+    const resultat = [];
+    liste.forEach((fontaine) => {
+        if (test(fontaine)) {
+            //    pour lesquelles test(fontaine) vaut true
+            resultat.push(fontaine);
+        }
+    });
+    return resultat;
 }
 
+console.log(estEnService(extraireFontaines(reponse)[1]))
+
+// Récupération des éléments HTML
+const boutonService = document.getElementById("btn-en-service");
+
+// c. Au clic sur « En service seulement », affiche filtrer(..., estEnService)
+boutonService.addEventListener("click", () => {
+  afficherFontaines(filtrer(fontaines, estEnService));
+});
 
 
 // TODO 6 — Une fonction fléchée en argument
