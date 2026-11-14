@@ -134,6 +134,20 @@ header {
 
 /* ---------- TODO 4 — Une piste de la playlist ---------- */
 
+.playlist {
+  padding: 1rem;
+}
+
+.piste {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem;
+}
+
+.piste-infos {
+  flex-grow: 1;
+}
 
 
 /* ---------- TODO 5 — La barre de contrôle ---------- */
