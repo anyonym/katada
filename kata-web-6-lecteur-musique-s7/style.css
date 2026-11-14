@@ -1,0 +1,230 @@
+/* =====================================================
+   Kata web 6 — Lecteur de musique
+   Les couleurs, les polices et l'aspect des boutons sont prêts.
+   À toi la MISE EN PAGE : suis les TODO, en mobile d'abord.
+   ===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #14141f;
+  color: #f1f0f7;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a3a1b8;
+  margin-bottom: 12px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #b9a7ff;
+}
+
+.artiste,
+.piste-artiste,
+.duree,
+.numero,
+.temps {
+  color: #a3a1b8;
+  font-size: 0.9rem;
+}
+
+.pochette {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+}
+
+.pistes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.piste {
+  padding: 10px 0;
+  border-bottom: 1px solid #2b2a3d;
+}
+
+.bouton-icone,
+.bouton-lecture {
+  border: none;
+  border-radius: 50%;
+  color: #f1f0f7;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.bouton-icone {
+  width: 44px;
+  height: 44px;
+  background: transparent;
+}
+
+.bouton-lecture {
+  width: 64px;
+  height: 64px;
+  background: #7b61ff;
+}
+
+.bouton-icone:focus-visible,
+.bouton-lecture:focus-visible,
+.barre:focus-visible {
+  outline: 3px solid #f2d16b;
+  outline-offset: 2px;
+}
+
+/* Cache un élément à l'écran, mais le laisse lisible par un lecteur d'écran */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Barre de contrôle fixée en bas d'écran */
+.controles {
+  background: #1e1d2e;
+  padding: 12px 16px 20px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* Espace libre conservé entre la fin de la liste de lecture et la barre de contrôle */
+.contenu {
+  padding-bottom: 50px;
+}
+
+/* ---------- TODO 2 — L'en-tête ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
+
+/* ---------- TODO 3 — Le morceau en cours ---------- */
+.en-cours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.infos h1 {
+  margin-bottom: 12px;
+}
+
+/* Mise en valeur de la piste en cours de lecture */
+.piste.active {
+  color: #8b5cf6;
+  font-weight: bold;
+}
+
+.duree.active {
+  color: #8b5cf6;
+  font-weight: bold;
+}
+
+
+/* ---------- TODO 4 — Une piste de la playlist ---------- */
+.playlist {
+  padding: 12px;
+}
+
+.piste {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.piste-infos {
+  flex-grow: 1;
+}
+
+
+/* ---------- TODO 5 — La barre de contrôle ---------- */
+.progression {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.barre {
+  flex-grow: 1;
+}
+
+.boutons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Masquer la barre de volume en affichage mobile */
+.volume {
+  display: none;
+}
+
+
+/* ---------- TODO 6 — Grand écran (768px et plus) ---------- */
+@media (min-width: 768px) {
+.contenu {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
+}
+
+.playlist {
+  flex-grow: 1;
+  margin-left: 50px;
+}
+
+/* Placeer et aligner les boutons de contrôle et la barre de volume */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* Barre de volume à droite des boutons de contrôle */
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+}
+
+/* Questions de recul 
+1. Parce que l'on inverse les axes de la flexbox. L'axe principal devient l'axe secondaire, les commandes qui agissent sur l'un et l'autre voient donc leurs flux modifiés.
+2. La barre de progression reste alignée à gauche et ne remplit plus tout l'espace disponible sur l'affichage du bloc.
+3. Parce que l'on code en Mobile first, et que c'est désormais l'usage majoritaire du web et des applications conçues pour les utilisateurs. Dans le cas présent, avec cette conception, il me semble plus simple d'adapter l'affichage d'un petit vers un grand écran.
+/
